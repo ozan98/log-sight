@@ -1,37 +1,88 @@
-const parse = (arr) => {
-    const timeStampRegex = /^\[(.+)\] (\w+) \[(\w+)\] \[(.+)\] \((\d+)\): (.+)$/
-    // const parsedObj = {
-    //     timeStamp: '',
-    //     logType: '',
-    //     logFrom: '',
-    //     logBody: ''
+const parse = (logStr) => {
+    // const regex = /^\[(.+)\] (\w+) \[(\w+)\] \[(.+)\] \((\d+)\): (.+)$/gm
+
+    // let matches
+    // const parsedArr = []
+
+    // while((matches = regex.exec(logStr)) !== null){
+    //     parsedArr.push({
+    //         timeStamp: matches[1],
+    //         level: matches[2],
+    //         module: matches[3],
+    //         request: matches[4],
+    //         lineNumber: matches[5],
+    //         body: matches[6]
+    //     })
     // }
+    // console.log(logStr)
+    // console.log(parsedArr)
+    // return parsedArr
 
-    const parsedLines = []
 
-    for(let i = 0; i < arr.length; i++){
-        let match = arr[i].match(timeStampRegex)
-        if(match) {
-            parsedLines.push({
-                timeStamp: match[1],
-                level: match[2],
-                module: match[3],
-                requestId: match[4],
-                lineNumber: match[5],
-                message: match[6]
-            })
-        } else{
-            console.log(match)
-            console.log(arr.length)
-            // console.log(arr[i])
-        }
-        // parsedLines.push({
-        //     hello: 'hello'
-        // })
-    }
 
-    return parsedLines
+    // let arr = []
+    // const regex = /\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\]/
+
+    // arr = logStr.split(regex)
+
+    // console.log(arr)
+
+    // return arr
+
+
+    // const regex = /\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\]/
+
+    // const matches = logStr.match(regex)
+
+    // console.log(matches)
+
+    // return ["fjaskdfjhsaf","kfjsafjk"]
+
+    // const regex = /\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\]/
+    // const matches = logStr.match(regex);
+
+    // let result = [];
+    // let start = 0;
+
     
+    // if(matches !== null){
+    //     matches.forEach(match => {
+    //         const index = logStr.indexOf(match, start);
+    //         result.push(logStr.slice(start, index) + match);
+    //         start = index + match.length;
+    // });
+    // } else {
+    //     result.push('empty')
+    // }
+    
+
+    // result.push(logStr.slice(start));
+
+    // console.log(result);
+
+
+
+    ////////////////////////////////
+
+    const regex = /(\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}\])/g;
+const matches = logStr.split(regex).filter(Boolean);
+
+let result = [];
+let entry = '';
+
+matches.forEach(match => {
+  if (regex.test(match)) {
+    if (entry) result.push(entry);
+    entry = match;
+  } else {
+    entry += match;
+  }
+});
+
+result.push(entry);
+
+console.log(result);
+    return result
 }
 
 module.exports = {
