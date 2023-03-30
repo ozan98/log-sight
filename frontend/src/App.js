@@ -10,6 +10,7 @@ function App() {
   useEffect(() => {
     const arr = parse(logStr)
     setLogArr(arr)
+    // console.log(logArr)
  
   },[logStr])
 
@@ -21,20 +22,22 @@ function App() {
         ></textarea>
 
 
-      {/* {logArr.map((line) => {
-        return (
-          <>
-            <p key={line}>{line.timeStamp}</p>
-            <p key={line}>{line.level}</p>
-            <p key={line}>{line.module}</p>
-            <p key={line}>{line.requestId}</p>
-            <p key={line}>{line.lineNumber}</p>
-            <p key={line}>{line.body}</p>
-          </>
-        )
-      })} */}
+      {/* {(logArr.length) ? (
+        logArr.map((line) => {
+          return (
+            <>
+              <p key={line}>{line.timeStamp}</p>
+              <p key={line}>{line.level}</p>
+              <p key={line}>{line.module}</p>
+              <p key={line}>{line.requestId}</p>
+              <p key={line}>{line.lineNumber}</p>
+              <p key={line}>{line.body}</p>
+            </>
+          )
+        })
+      ) : (<p>empty</p>)} */}
 
-      {logArr.map((line) => {
+      {/* {logArr.map((line) => {
         return ( <> 
         <p>{line}</p> 
         <p> </p> 
@@ -44,7 +47,7 @@ function App() {
 
 
         </>)
-      })}
+      })} */}
     </div>
   );
 }

@@ -1,89 +1,87 @@
+
+const getTimeStamp = (str) => {
+    const regex = /^\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})\]/
+    const match = str.match(regex) || ['']
+    return match[0] 
+}
+
+const getLogLevel = (str) => {
+    const regex = /\b(DEBUG|INFO|WARN|ERROR|FATAL)\b/
+    const match = str.match(regex)|| ['']
+    return match[0]
+}
+
+const getModule = (str) => {
+    const regex = /\[(\w+)\]/
+    const match = str.match(regex)|| ['']
+    return match[0]
+}
+
+const getRequestId = (str) => {
+    const regex = /\[([a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12})\]/
+    const match = str.match(regex)|| ['']
+    return match[0]
+}
+
+const getLineNumber = (str) => {
+    const regex = /\((\d+)\):/
+    const match = str.match(regex)|| ['']
+    return match[0]
+}
+
+const getLogMessage = (str) => {
+    const regex = /:\s*(.*)/
+    const match = str.match(regex)|| ['']
+    return match[0]
+}
+
+
+const parseToObjs = (arr) => {
+    const logObjArr = []
+
+        for(let line of arr) {
+            const logObj = {
+                timeStamp: getTimeStamp(line),
+                level: getLogLevel(line),
+                module: getModule(line),
+                requestId: getRequestId(line),
+                lineNumber: getLineNumber(line),
+                body: getLogMessage(line)
+                }
+                
+            console.log('success')
+            console.log(logObj)
+            logObjArr.push(logObj)
+            }
+
+            console.log(logObjArr)
+            return logObjArr
+        }
+            
+
 const parse = (logStr) => {
-    // const regex = /^\[(.+)\] (\w+) \[(\w+)\] \[(.+)\] \((\d+)\): (.+)$/gm
+    const regex = /(\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}\])/g;
+    const matches = logStr.split(regex).filter(Boolean);
 
-    // let matches
-    // const parsedArr = []
+    let result = [];
+    let entry = '';
 
-    // while((matches = regex.exec(logStr)) !== null){
-    //     parsedArr.push({
-    //         timeStamp: matches[1],
-    //         level: matches[2],
-    //         module: matches[3],
-    //         request: matches[4],
-    //         lineNumber: matches[5],
-    //         body: matches[6]
-    //     })
-    // }
-    // console.log(logStr)
-    // console.log(parsedArr)
-    // return parsedArr
+    matches.forEach(match => {
+    if (regex.test(match)) {
+        if (entry) result.push(entry);
+        entry = match;
+    } else {
+        entry += match;
+    }
+    });
 
-
-
-    // let arr = []
-    // const regex = /\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\]/
-
-    // arr = logStr.split(regex)
-
-    // console.log(arr)
-
-    // return arr
-
-
-    // const regex = /\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\]/
-
-    // const matches = logStr.match(regex)
-
-    // console.log(matches)
-
-    // return ["fjaskdfjhsaf","kfjsafjk"]
-
-    // const regex = /\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3}\]/
-    // const matches = logStr.match(regex);
-
-    // let result = [];
-    // let start = 0;
-
-    
-    // if(matches !== null){
-    //     matches.forEach(match => {
-    //         const index = logStr.indexOf(match, start);
-    //         result.push(logStr.slice(start, index) + match);
-    //         start = index + match.length;
-    // });
-    // } else {
-    //     result.push('empty')
-    // }
-    
-
-    // result.push(logStr.slice(start));
+    result.push(entry);
 
     // console.log(result);
-
-
-
-    ////////////////////////////////
-
-    const regex = /(\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}\])/g;
-const matches = logStr.split(regex).filter(Boolean);
-
-let result = [];
-let entry = '';
-
-matches.forEach(match => {
-  if (regex.test(match)) {
-    if (entry) result.push(entry);
-    entry = match;
-  } else {
-    entry += match;
-  }
-});
-
-result.push(entry);
-
-console.log(result);
-    return result
+    return parseToObjs(result)
 }
+
+
 
 module.exports = {
     parse
