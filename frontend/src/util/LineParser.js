@@ -30,15 +30,30 @@ const getLineNumber = (str) => {
 }
 
 const getLogMessage = (str) => {
-    const regex = /:\s*(.*)/
-    const match = str.match(regex)|| ['']
-    return match[0]
+    // const regex = /\(\d+\):\s*(.*)$/
+    // const regex = /:[^:]*:\s*(.*)$/
+    // const regex =  /:\d+\)\s+([\s\S]*)/
+
+    // const match = str.match(regex)|| ['']
+    // console.log(match)
+    // return match[1]
+    let newStr = str
+
+    newStr = newStr.replace(/^\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})\]/, '')
+    newStr = newStr.replace(/\b(DEBUG|INFO|WARN|ERROR|FATAL)\b/, '')
+    newStr = newStr.replace(/\[(\w+)\]/, '')
+    newStr = newStr.replace(/\[([a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12})\]/, '')
+    newStr = newStr.replace(/\((\d+)\):/, '')
+
+
+    console.log(str)
+    return newStr
 }
 
 
 const parseToObjs = (arr) => {
     const logObjArr = []
-
+    console.log(arr)
         for(let line of arr) {
             const logObj = {
                 timeStamp: getTimeStamp(line),

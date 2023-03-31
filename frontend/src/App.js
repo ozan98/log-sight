@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import {parse} from './util/LineParser'
+import {getNumOfError, getErrorLogs} from './util/analytic'
 
 function App() {
   const [logStr, setLogStr] = useState(``)
@@ -9,8 +10,11 @@ function App() {
 
   useEffect(() => {
     const arr = parse(logStr)
-    setLogArr(arr)
-    // console.log(logArr)
+
+    if(logStr.length > 1){
+      setLogArr(arr)
+    }
+    
  
   },[logStr])
 
@@ -20,6 +24,29 @@ function App() {
       <textarea
         onChange={(e) => setLogStr(e.target.value)}
         ></textarea>
+
+      {<>
+        <p>ERROR</p>
+        <p>{getNumOfError(logArr)}</p>
+      </>}
+
+      {<>
+        <p>ERROR logs</p>
+        {getErrorLogs(logArr).map((log) => {
+          return (
+            <>
+              <p>
+                {log.timeStamp}
+                {log.level}
+                {log.module}
+                {log.requestId}
+                {log.lineNumber}
+                {log.body}</p>
+            </>
+          )
+        })}
+      </>}
+
 
 
       {/* {(logArr.length) ? (
