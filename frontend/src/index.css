@@ -45,6 +45,8 @@ code {
 }
 
 .log-viewer textarea{
+  text-decoration: none;
+  font-size: 12px;
   background-color: var(--dark);
   color: var(--text);
   width: 100%;

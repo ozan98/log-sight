@@ -92,6 +92,14 @@ const parse = (logStr) => {
 
     // console.log(result);
     return parseToObjs(result)
+
+
+    //another implanemtation
+    // logStr = logStr.split(/\n(?=\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\])/);
+    // // This will split the log string into an array of logs based on the regular expression for the timestamp pattern
+
+    // return parseToObjs(logStr)
+
 }
 
 
