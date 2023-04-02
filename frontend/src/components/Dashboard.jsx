@@ -9,7 +9,7 @@ function Dashboard() {
   const [logStr, setLogStr] = useState(``)
   const [logArr, setLogArr] = useState([])
 
-
+    console.log(logArr)
   useEffect(() => {
     const arr = parse(logStr)
 
