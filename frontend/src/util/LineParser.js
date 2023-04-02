@@ -45,15 +45,13 @@ const getLogMessage = (str) => {
     newStr = newStr.replace(/\[([a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12})\]/, '')
     newStr = newStr.replace(/\((\d+)\):/, '')
 
-
-    console.log(str)
     return newStr
 }
 
 
 const parseToObjs = (arr) => {
     const logObjArr = []
-    console.log(arr)
+    // console.log(arr)
         for(let line of arr) {
             const logObj = {
                 timeStamp: getTimeStamp(line),
@@ -61,15 +59,15 @@ const parseToObjs = (arr) => {
                 module: getModule(line),
                 requestId: getRequestId(line),
                 lineNumber: getLineNumber(line),
-                body: getLogMessage(line)
+                body: getLogMessage(line),
                 }
                 
-            console.log('success')
-            console.log(logObj)
+            // console.log('success')
+            // console.log(logObj)
             logObjArr.push(logObj)
             }
 
-            console.log(logObjArr)
+            // console.log(logObjArr)
             return logObjArr
         }
             

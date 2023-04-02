@@ -1,82 +1,64 @@
-import React from 'react';
-import {useState, useEffect} from 'react'
-import {parse} from './util/LineParser'
-import {getNumOfError, getErrorLogs} from './util/analytic'
+
+
+// import React from 'react';
+// import {useState, useEffect} from 'react'
+// import {parse} from './util/LineParser'
+// import {getNumOfError, getErrorLogs,getNumOfException, getExceptionLogs} from './util/analytic'
+// import LogSnippet from './components/LogSnippet'
+import Dashboard from './components/Dashboard'
 
 function App() {
-  const [logStr, setLogStr] = useState(``)
-  const [logArr, setLogArr] = useState([])
+  // const [logStr, setLogStr] = useState(``)
+  // const [logArr, setLogArr] = useState([])
 
 
-  useEffect(() => {
-    const arr = parse(logStr)
+  // useEffect(() => {
+  //   const arr = parse(logStr)
 
-    if(logStr.length > 1){
-      setLogArr(arr)
-    }
+  //   if(logStr.length > 1){
+  //     setLogArr(arr)
+  //   }
     
  
-  },[logStr])
+  // },[logStr])
 
-  return (
-    <div className="App">
-      <h1>Log here</h1>
-      <textarea
-        onChange={(e) => setLogStr(e.target.value)}
-        ></textarea>
+  // return (
+  //   <div className="App">
+  //     <div>
+  //         <textarea 
+  //           onChange={(e) => setLogStr(e.target.value)}
+  //         ></textarea>
+  //       </div>
+  //   <div className="dashboard">
 
-      {<>
-        <p>ERROR</p>
-        <p>{getNumOfError(logArr)}</p>
-      </>}
+  //     <div className="log-viewer">
+  //       <LogSnippet logObj={logArr}/>
+  //     </div>
 
-      {<>
-        <p>ERROR logs</p>
-        {getErrorLogs(logArr).map((log) => {
-          return (
-            <>
-              <p>
-                {log.timeStamp}
-                {log.level}
-                {log.module}
-                {log.requestId}
-                {log.lineNumber}
-                {log.body}</p>
-            </>
-          )
-        })}
-      </>}
+      
+  //     <div className="log-workbench">
+
+  //       {<div className="error-logs">
+  //         <LogSnippet logObj={getErrorLogs(logArr)}/>
+  //       </div>}
+
+  //       {<div className="exception-logs">
+  //         <p>EXCEPTION logs: {getNumOfException(logArr)}</p>
+  //         <LogSnippet logObj={getExceptionLogs(logArr)}/>
+  //       </div>}
+
+  //     </div>
 
 
+  //   </div>  
+  //   </div>
+  // );
 
-      {/* {(logArr.length) ? (
-        logArr.map((line) => {
-          return (
-            <>
-              <p key={line}>{line.timeStamp}</p>
-              <p key={line}>{line.level}</p>
-              <p key={line}>{line.module}</p>
-              <p key={line}>{line.requestId}</p>
-              <p key={line}>{line.lineNumber}</p>
-              <p key={line}>{line.body}</p>
-            </>
-          )
-        })
-      ) : (<p>empty</p>)} */}
-
-      {/* {logArr.map((line) => {
-        return ( <> 
-        <p>{line}</p> 
-        <p> </p> 
-        <p> </p> 
-
-        <p> </p> 
-
-
-        </>)
-      })} */}
-    </div>
-  );
+  return(
+    <>
+      <Dashboard/>
+    </>
+  )
 }
 
 export default App;

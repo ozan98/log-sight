@@ -1,3 +1,15 @@
+const getExceptionLogs = (arr) => {
+    let exceptionLogs = []
+
+    for(let e of arr) {
+        if(e.body.includes('Exception')){
+            exceptionLogs.push(e)
+        }
+    }
+
+    return exceptionLogs
+}
+
 const getErrorLogs = (arr) => {
     let errorLogs = []
 
@@ -8,6 +20,18 @@ const getErrorLogs = (arr) => {
     }
 
     return errorLogs
+}
+
+const getNumOfException = (arr) => {
+    let counter = 0
+
+    for(let e of arr){
+        if(e.body.includes('Exception')){
+            counter++
+        }
+    }
+
+    return counter
 }
 
 const getNumOfError = (arr) => {
@@ -25,5 +49,7 @@ const getNumOfError = (arr) => {
 
 module.exports = {
     getNumOfError,
-    getErrorLogs
+    getErrorLogs,
+    getNumOfException,
+    getExceptionLogs
 }

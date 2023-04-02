@@ -1,3 +1,11 @@
+
+
+:root {
+  --dark: #151515;
+  --text: #DEDEDE;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +13,54 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  background-color: azure;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dashboard {
+  background: blue;
+  max-width: 100%;
+  height: 100vh;
+
+  display: flex;
+}
+
+.log-viewer-container {
+  background: orange;
+  width: 50%;
+}
+
+.log-workbench {
+  background: green;
+  width: 50%;
+}
+
+.log-input textarea{
+  width: 100%;
+}
+
+.log-viewer textarea{
+  background-color: var(--dark);
+  color: var(--text);
+  width: 100%;
+  height: 100vh;
+}
+
+.error-log textarea{
+  width: 100%;
+  height: 50vh;
+}
+
+.exception-log textarea {
+  width: 100%;
+  height: 50vh;
+}
+
+
+
+
