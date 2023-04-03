@@ -1,12 +1,22 @@
-
-
 :root {
   --dark: #151515;
   --text: #DEDEDE;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--background);
+  /* height: 100vh; */
+}
+
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -20,9 +30,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
-.dashboard {
+
+
+
+
+
+/* .dashboard {
   background: blue;
   max-width: 100%;
   height: 100vh;
@@ -62,6 +77,61 @@ code {
 .exception-log textarea {
   width: 100%;
   height: 45vh;
+} */
+
+
+.dashboard {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+}
+
+.log-nav {
+  width: 15%;
+  height: 100%
+
+}
+
+.log-view-container {
+  width: 65%;
+  height: 100%;
+}
+
+.log-view-container .log-view-input textarea {
+  width: 100%;
+  height: 2vh;
+}
+
+.log-view-container .log-view {
+  overflow-y: scroll;
+  font-size: 12px;
+  width: 100;
+  height: 65vh;
+}
+
+.log-analysis {
+  width: 25%;
+  height: 100%
+
+}
+
+table {
+  text-decoration: none;
+
+}
+
+tr {
+  white-space: pre-wrap;
+  text-align: center;
+  vertical-align: bottom;
+  border: 3px solid black;
+
+
+}
+
+tr th:nth-child(7) {
+  text-align: left;
 }
 
 

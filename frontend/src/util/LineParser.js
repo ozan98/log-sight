@@ -1,8 +1,71 @@
+const parseDateHelper = (dateObject) => {
+    const dateString = dateObject.dateObject.toString()
+
+    const dateData = dateString.split(' ')
+    console.log(dateData)
+    
+    const dateTimeArr = {
+        timeStamp: dateObject.timeStamp,
+        year: dateData[3],
+        month: dateData[1],
+        day: dateData[2],
+        time: dateData[4]
+      }
+
+    console.log(dateTimeArr)
+    return dateTimeArr
+
+}
+
+const parseDate = (obj) => {
+    if(obj.date === '') {
+        console.log(obj.date)
+        console.log('uh oh')
+        return ''
+    }
+
+    const [datePart, timePart] = obj.date.split(' ')
+    const [year, month, day] = datePart.split('-')
+    const [hour, minute, secondPart] = timePart.split(':')
+    const [second, millisecond] = secondPart.split('.')
+    console.log(year)
+    console.log(month)
+    console.log(day)
+    console.log(hour)
+    console.log(minute)
+    console.log(second)
+    console.log(millisecond)
+
+    const dateObject = new Date(year, month, day, hour, minute, second, millisecond);
+    
+    console.log(dateObject)
+    
+    return parseDateHelper({
+        dateObject: dateObject,
+        timeStamp: obj.timeStamp,
+    })
+
+}
+
 
 const getTimeStamp = (str) => {
     const regex = /^\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})\]/
     const match = str.match(regex) || ['']
-    return match[0] 
+    let date = match[0]
+    const timeStamp = match[0]
+    // console.log(typeof date)
+
+    date = date.replace('[', '')
+    date = date.replace(']', '')
+    
+    const dateTimeObj = {
+        date: date, 
+        timeStamp: timeStamp,
+    }
+
+    console.log(dateTimeObj)
+    const dateTime = parseDate(dateTimeObj)
+    return dateTime
 }
 
 const getLogLevel = (str) => {
