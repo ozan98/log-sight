@@ -1,14 +1,17 @@
 
 
-function LogTable( {logArr} ) {
+function LogTable( {logArr, getSnippet} ) {
  console.log(logArr)
+ console.log(() => getSnippet(2))
+
     return(
         <>
         {
             logArr.map((log) => {
                 return(
                     // <div className="table-row">
-                    <tr>
+                    <tr onClick={() => getSnippet(log.index)}>
+                        <td>{log.index}</td>
                         <td>{log.timeStamp.day}{log.timeStamp.month}{log.timeStamp.year}</td>
                         <td>{log.timeStamp.time}</td>
                         <td>{log.level}</td>

@@ -3,7 +3,7 @@ function LogSnippet( {logObj} ) {
     const getLogObjAsString = (obj) => {
         let string = ''
         obj.map((log) => {
-            string = string + log.timeStamp + ' ' + log.level + ' ' + log.module + ' ' + log.requestId + ' ' + log.lineNumber + log.body
+            string = string + log.timeStamp.timeStamp + ' ' + log.level + ' ' + log.module + ' ' + log.requestId + ' ' + log.lineNumber + log.body
         })
 
         return string

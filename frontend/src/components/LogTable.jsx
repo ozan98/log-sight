@@ -1,6 +1,6 @@
 import LogRow from './LogRow'
 
-function LogTable( {logArr} ) {
+function LogTable( {logArr, getSnippet} ) {
     
     return(
         <table>
@@ -8,7 +8,7 @@ function LogTable( {logArr} ) {
                 
             </thead>
             <tbody>
-                <LogRow logArr={logArr} />
+                <LogRow logArr={logArr} getSnippet={getSnippet}/>
             </tbody>
         </table>
     )

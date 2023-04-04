@@ -114,9 +114,10 @@ const getLogMessage = (str) => {
 
 const parseToObjs = (arr) => {
     const logObjArr = []
-    // console.log(arr)
+    let index = 1
         for(let line of arr) {
-            const logObj = {
+            const logObj = { 
+                index: getTimeStamp(line) === '' ? '' : index++,
                 timeStamp: getTimeStamp(line),
                 level: getLogLevel(line),
                 module: getModule(line),

@@ -9,46 +9,30 @@ import LogTable from './LogTable'
 function Dashboard() {
   const [logStr, setLogStr] = useState(``)
   const [logArr, setLogArr] = useState([])
+  const [snippetView, setSnippetView] = useState([])
 
   useEffect(() => {
     const arr = parse(logStr)
 
-    if(logStr.length > 0){
+    if(logStr){
       setLogArr(arr)
     }
     
  
   },[logStr])
 
+  const selectSnippet = (index) => {
+      setSnippetView([])
+      const snippetLine = logArr.filter((line) => line.index === index)
+      console.log(snippetLine)
+    
+      setSnippetView(snippetLine)
+
+  }
+
   return (
     <div className="dashboard">
-        {/* <div className="log-viewer-container">
-
-            <div className="log-input">
-                <textarea 
-                    onChange={(e) => setLogStr(e.target.value)}
-                ></textarea>
-            </div>
-
-            <div className="log-viewer">
-                <LogSnippet logObj={logArr}/>
-            </div>
-
-
-        </div>
-
-        <div className="log-workbench">
-
-            {<div className="error-log">
-                <LogSnippet logObj={getErrorLogs(logArr)}/>
-            </div>}
-
-            {<div className="exception-log">
-                <p>EXCEPTION logs: {getNumOfException(logArr)}</p>
-                <LogSnippet logObj={getExceptionLogs(logArr)}/>
-            </div>}
-        </div> */}
-
+        
         <div className="log-nav">
 
         </div>
@@ -61,17 +45,14 @@ function Dashboard() {
             </div>
 
             <div className="log-view">
-                 <LogTable logArr={logArr}/>
+                 <LogTable logArr={logArr} getSnippet={selectSnippet}/>
             </div>
 
-            <div className="log-observe">
-
+            <div className="log-snippet">
+                <LogSnippet logObj={snippetView} />
             </div>
         </div>
 
-        {/* <div className="log-analysis">
-
-        </div> */}
     </div>
   );
 }
