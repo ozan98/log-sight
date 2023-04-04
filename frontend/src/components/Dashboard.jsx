@@ -69,9 +69,9 @@ function Dashboard() {
             </div>
         </div>
 
-        <div className="log-analysis">
+        {/* <div className="log-analysis">
 
-        </div>
+        </div> */}
     </div>
   );
 }

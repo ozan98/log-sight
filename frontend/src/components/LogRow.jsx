@@ -7,15 +7,17 @@ function LogTable( {logArr} ) {
         {
             logArr.map((log) => {
                 return(
+                    // <div className="table-row">
                     <tr>
-                        <th>{log.timeStamp.day}{log.timeStamp.month}{log.timeStamp.year}</th>
-                        <th>{log.timeStamp.time}</th>
-                        <th>{log.level}</th>
-                        <th>{log.module}</th>
-                        <th>{log.requestId}</th>
-                        <th>{log.lineNumber}</th>
-                        <th>{log.body}</th>
+                        <td>{log.timeStamp.day}{log.timeStamp.month}{log.timeStamp.year}</td>
+                        <td>{log.timeStamp.time}</td>
+                        <td>{log.level}</td>
+                        <td>{log.module}</td>
+                        <td>{log.requestId}</td>
+                        <td>{log.lineNumber}</td>
+                        <td>{log.body}</td>
                     </tr>
+                    // </div>
                 )
             })
         }
