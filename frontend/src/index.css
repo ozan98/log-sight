@@ -155,5 +155,7 @@ table tr:hover td {
 }
 
 
-
+.log-snippet textarea {
+  width: 100%;
+}
 

@@ -1,24 +1,35 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import {parse} from '../util/LineParser'
-import {getNumOfError, getErrorLogs,getNumOfException, getExceptionLogs} from '../util/analytic'
+import {getNumOfError, 
+        getErrorLogs,
+        getNumOfException, 
+        getExceptionLogs,
+        getNumOfLevel} from '../util/analytic'
 import LogSnippet from './LogSnippet'
 import LogTable from './LogTable'
+import UtilityBar from './UtilityBar'
 
 
 function Dashboard() {
   const [logStr, setLogStr] = useState(``)
   const [logArr, setLogArr] = useState([])
   const [snippetView, setSnippetView] = useState([])
+  
 
   useEffect(() => {
-    const arr = parse(logStr)
+    console.log('hello')
 
-    if(logStr){
+    if(logStr !== ''){
+      const arr = parse(logStr)
       setLogArr(arr)
+      console.log('hello from if statement')
     }
-    
- 
+
+    return () => {
+      setLogArr([])
+    }
+
   },[logStr])
 
   const selectSnippet = (index) => {
@@ -30,6 +41,8 @@ function Dashboard() {
 
   }
 
+
+
   return (
     <div className="dashboard">
         
@@ -37,7 +50,11 @@ function Dashboard() {
 
         </div>
 
+      
         <div className="log-view-container">
+
+          <UtilityBar logArr={logArr}/>
+
             <div className="log-view-input">
                 <textarea onChange={(e) => setLogStr(e.target.value)}>
 
@@ -45,7 +62,7 @@ function Dashboard() {
             </div>
 
             <div className="log-view">
-                 <LogTable logArr={logArr} getSnippet={selectSnippet}/>
+                 <LogTable logArr={logArr} getSnippet={selectSnippet} />
             </div>
 
             <div className="log-snippet">

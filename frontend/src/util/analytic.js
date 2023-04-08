@@ -46,10 +46,40 @@ const getNumOfError = (arr) => {
     return counter
 }
 
+const getNumOfLevel = (arr) => {
+    let errorCount = 0
+    let warnCount = 0
+    let infoCount = 0
+    let debugCount = 0
+
+
+    for(let line of arr) {
+        if(line.level === 'ERROR')
+            errorCount++
+        if(line.level === 'WARN')
+            warnCount++
+        if(line.level === 'INFO')
+            infoCount++
+        if(line.level === 'DEBUG')
+            debugCount++       
+    }
+
+    const numOfLevelObject = {
+        exceptionCount: getNumOfException(arr),
+        errorCount: errorCount,
+        warnCount: warnCount,
+        infoCount: infoCount,
+        debugCount: debugCount,
+    }
+
+    return numOfLevelObject
+} 
+
 
 module.exports = {
     getNumOfError,
     getErrorLogs,
     getNumOfException,
-    getExceptionLogs
+    getExceptionLogs,
+    getNumOfLevel,
 }

@@ -2,7 +2,6 @@ const parseDateHelper = (dateObject) => {
     const dateString = dateObject.dateObject.toString()
 
     const dateData = dateString.split(' ')
-    console.log(dateData)
     
     const dateTimeArr = {
         timeStamp: dateObject.timeStamp,
@@ -12,15 +11,12 @@ const parseDateHelper = (dateObject) => {
         time: dateData[4]
       }
 
-    console.log(dateTimeArr)
     return dateTimeArr
 
 }
 
 const parseDate = (obj) => {
     if(obj.date === '') {
-        console.log(obj.date)
-        console.log('uh oh')
         return ''
     }
 
@@ -28,17 +24,10 @@ const parseDate = (obj) => {
     const [year, month, day] = datePart.split('-')
     const [hour, minute, secondPart] = timePart.split(':')
     const [second, millisecond] = secondPart.split('.')
-    console.log(year)
-    console.log(month)
-    console.log(day)
-    console.log(hour)
-    console.log(minute)
-    console.log(second)
-    console.log(millisecond)
+
 
     const dateObject = new Date(year, month, day, hour, minute, second, millisecond);
     
-    console.log(dateObject)
     
     return parseDateHelper({
         dateObject: dateObject,
@@ -53,7 +42,6 @@ const getTimeStamp = (str) => {
     const match = str.match(regex) || ['']
     let date = match[0]
     const timeStamp = match[0]
-    // console.log(typeof date)
 
     date = date.replace('[', '')
     date = date.replace(']', '')
@@ -63,7 +51,6 @@ const getTimeStamp = (str) => {
         timeStamp: timeStamp,
     }
 
-    console.log(dateTimeObj)
     const dateTime = parseDate(dateTimeObj)
     return dateTime
 }
@@ -93,13 +80,7 @@ const getLineNumber = (str) => {
 }
 
 const getLogMessage = (str) => {
-    // const regex = /\(\d+\):\s*(.*)$/
-    // const regex = /:[^:]*:\s*(.*)$/
-    // const regex =  /:\d+\)\s+([\s\S]*)/
 
-    // const match = str.match(regex)|| ['']
-    // console.log(match)
-    // return match[1]
     let newStr = str
 
     newStr = newStr.replace(/^\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})\]/, '')
@@ -126,12 +107,10 @@ const parseToObjs = (arr) => {
                 body: getLogMessage(line),
                 }
                 
-            // console.log('success')
-            // console.log(logObj)
+    
             logObjArr.push(logObj)
             }
 
-            // console.log(logObjArr)
             return logObjArr
         }
             
@@ -154,15 +133,7 @@ const parse = (logStr) => {
 
     result.push(entry);
 
-    // console.log(result);
     return parseToObjs(result)
-
-
-    //another implanemtation
-    // logStr = logStr.split(/\n(?=\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d+\])/);
-    // // This will split the log string into an array of logs based on the regular expression for the timestamp pattern
-
-    // return parseToObjs(logStr)
 
 }
 
