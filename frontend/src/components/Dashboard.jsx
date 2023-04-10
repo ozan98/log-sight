@@ -1,11 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import {parse} from '../util/LineParser'
-import {getNumOfError, 
-        getErrorLogs,
-        getNumOfException, 
-        getExceptionLogs,
-        getNumOfLevel} from '../util/analytic'
+import {filterByLevel} from '../util/analytic'
 import LogSnippet from './LogSnippet'
 import LogTable from './LogTable'
 import UtilityBar from './UtilityBar'
@@ -14,12 +10,12 @@ import UtilityBar from './UtilityBar'
 function Dashboard() {
   const [logStr, setLogStr] = useState(``)
   const [logArr, setLogArr] = useState([])
+  const [filteredLog, setFilteredLog] = useState([])
   const [snippetView, setSnippetView] = useState([])
   
 
   useEffect(() => {
-    console.log('hello')
-
+    
     if(logStr !== ''){
       const arr = parse(logStr)
       setLogArr(arr)
@@ -42,6 +38,15 @@ function Dashboard() {
   }
 
 
+  const viewLevel = (level) => {
+    const filteredLog = filterByLevel(logArr, level)
+    setFilteredLog(filteredLog)
+    console.log(filteredLog)
+  }
+
+  const viewTimeStamp = (timeStamp) => {
+    
+  }
 
   return (
     <div className="dashboard">
@@ -53,16 +58,16 @@ function Dashboard() {
       
         <div className="log-view-container">
 
-          <UtilityBar logArr={logArr}/>
+          <UtilityBar logArr={logArr} filterByLevel={viewLevel}/>
 
             <div className="log-view-input">
                 <textarea onChange={(e) => setLogStr(e.target.value)}>
-
                 </textarea>
+                
             </div>
 
             <div className="log-view">
-                 <LogTable logArr={logArr} getSnippet={selectSnippet} />
+              <LogTable logArr={filteredLog} getSnippet={selectSnippet} />
             </div>
 
             <div className="log-snippet">

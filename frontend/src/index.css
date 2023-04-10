@@ -1,6 +1,8 @@
 :root {
-  --dark: #151515;
-  --text: #DEDEDE;
+  --dark: rgba(0, 0, 0, 0.87);
+  --text: #E9E9E9;
+  --highlight: #1F1F1F;
+  --textAreaBackground: rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -11,73 +13,11 @@
 
 body {
   font-family: "Cascadia Code";
-  /* background-color: var(--dark); */
-  /* height: 100vh; */
-}
-
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  background-color: azure;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
-
-
-
-
-
-/* .dashboard {
-  background: blue;
-  max-width: 100%;
-  height: 100vh;
-
-  display: flex;
-}
-
-.log-viewer-container {
-  background: orange;
-  width: 50%;
-}
-
-.log-workbench {
-  background: green;
-  width: 50%;
-}
-
-.log-input textarea{
-  width: 100%;
-  height: 10vh;
-}
-
-.log-viewer textarea{
-  
-  font-size: 12px;
   background-color: var(--dark);
   color: var(--text);
-  width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 
-.error-log textarea{
-  width: 100%;
-  height: 45vh;
-}
-
-.exception-log textarea {
-  width: 100%;
-  height: 45vh;
-} */
 
 
 .dashboard {
@@ -101,6 +41,7 @@ code {
 .log-view-container .log-view-input textarea {
   width: 100%;
   height: 5vh;
+
 }
 
 .log-view-container .log-view {
@@ -109,6 +50,8 @@ code {
   font-size: 12px;
   width: 100;
   height: 65vh;
+  background-color: var(--textAreaBackground);
+  
 }
 
 .log-analysis {
@@ -151,11 +94,12 @@ tr th:nth-child(7) {
 } */
 
 table tr:hover td {
-  background-color: coral;
+  background-color: var(--highlight);
 }
 
 
 .log-snippet textarea {
   width: 100%;
+  /* height: 100vh; */
 }
 

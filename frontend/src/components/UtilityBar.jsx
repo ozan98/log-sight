@@ -1,18 +1,18 @@
 import {getNumOfLevel} from '../util/analytic'
 
-function UtilityBar( {logArr} ) {
+function UtilityBar( {logArr, filterByLevel} ) {
 
     const levelNum = getNumOfLevel(logArr)
 
     return (
         <div className="utility-bar">
-            {/* <div className="utility-buttons"> */}
-                <button>Exception {levelNum.exceptionCount}</button>
-                <button>Error {levelNum.errorCount}</button>
-                <button>Warn {levelNum.warnCount}</button>
-                <button>Info {levelNum.infoCount}</button>
-                <button>Debug {levelNum.debugCount}</button>
-            {/* </div> */}
+            <div className="utility-buttons">
+                <button onClick={() => filterByLevel('EXCEPTION')}>Exception {levelNum.exceptionCount}</button>
+                <button onClick={() => filterByLevel('ERROR')}>Error {levelNum.errorCount}</button>
+                <button onClick={() => filterByLevel('WARN')}>Warn {levelNum.warnCount}</button>
+                <button onClick={() => filterByLevel('INFO')}>Info {levelNum.infoCount}</button>
+                <button onClick={() => filterByLevel('DEBUG')}>Debug {levelNum.debugCount}</button>
+            </div>
         </div>
     )
 }

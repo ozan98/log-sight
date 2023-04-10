@@ -1,46 +1,31 @@
-const getExceptionLogs = (arr) => {
-    let exceptionLogs = []
+const filterByTimeStamp = (timeStamp) => {
 
-    for(let e of arr) {
-        if(e.body.includes('Exception')){
-            exceptionLogs.push(e)
-        }
-    }
-
-    return exceptionLogs
 }
 
-const getErrorLogs = (arr) => {
-    let errorLogs = []
 
-    for (let e of arr) {
-        if(e.level === 'ERROR') {
-            errorLogs.push(e)
+
+const filterByLevel = (logArr, level) => {
+    let levelFiltered = []
+
+    for(let line of logArr){
+        if(level === 'EXCEPTION'){
+                if(line.body.includes('Exception'))
+                    levelFiltered.push(line)
+        }else {
+            if(line.level === level)
+                levelFiltered.push(line)
         }
     }
-
-    return errorLogs
+    
+    return levelFiltered
 }
 
 const getNumOfException = (arr) => {
     let counter = 0
 
     for(let e of arr){
-        if(e.body.includes('Exception')){
+        if(e.body.includes('Exception'))
             counter++
-        }
-    }
-
-    return counter
-}
-
-const getNumOfError = (arr) => {
-    let counter = 0
-
-    for(let e of arr) {
-        if(e.level === 'ERROR') {
-            counter++
-        }
     }
 
     return counter
@@ -77,9 +62,6 @@ const getNumOfLevel = (arr) => {
 
 
 module.exports = {
-    getNumOfError,
-    getErrorLogs,
-    getNumOfException,
-    getExceptionLogs,
     getNumOfLevel,
+    filterByLevel,
 }
