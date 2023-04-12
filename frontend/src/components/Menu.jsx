@@ -1,0 +1,45 @@
+import AddLogForm from './AddLogForm'
+import {useState} from 'react'
+
+function Menu( {logList, setCurrentObservingLog, addLog} ) {
+
+    const [addSelect, setAddSelect] = useState(false)
+
+    const renderLogList = (logList) => {
+        console.log("rendering")
+        return logList.map((log) => {
+            return (<div>
+                        <p>{log.logName}</p>
+                        <p>{log.logtype}</p>
+                    </div>)
+        })
+    }
+
+    const renderAddButton = () => {
+        return <button onClick={() => setAddSelect(true)}>Add</button>
+    }
+
+    const renderAddForm = () => {
+        return <AddLogForm addToList={addLog} toggleAddSelect={setAddSelect} />
+    }
+
+    return (
+        <>
+        <div className="logo">
+            <h1>LOG SIGHT</h1>
+        </div>
+
+        <div className="log-list-container">
+            <div className="add-Log-Container">
+                {(addSelect) ? renderAddForm() : renderAddButton()}
+            </div>
+            <div className="log-list">
+                {(logList.length !== 0) ? renderLogList(logList) : (console.log('empty fail'))}
+            </div>
+        </div>
+
+        </>
+    )
+}
+
+export default Menu

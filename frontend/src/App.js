@@ -1,63 +1,31 @@
-
-
-// import React from 'react';
-// import {useState, useEffect} from 'react'
-// import {parse} from './util/LineParser'
-// import {getNumOfError, getErrorLogs,getNumOfException, getExceptionLogs} from './util/analytic'
-// import LogSnippet from './components/LogSnippet'
+import Menu from './components/Menu'
 import Dashboard from './components/Dashboard'
+import {useState} from 'react'
 
 function App() {
-  // const [logStr, setLogStr] = useState(``)
-  // const [logArr, setLogArr] = useState([])
+  const [logList, setLogList] = useState([])
+  const [currentObservingLog, setCurrectObservingLog] = useState({})
 
 
-  // useEffect(() => {
-  //   const arr = parse(logStr)
+  const addLog = (newLog) => {
+    setLogList((prev) => [...prev, newLog])
+    console.log(newLog)
+  }
 
-  //   if(logStr.length > 1){
-  //     setLogArr(arr)
-  //   }
-    
- 
-  // },[logStr])
-
-  // return (
-  //   <div className="App">
-  //     <div>
-  //         <textarea 
-  //           onChange={(e) => setLogStr(e.target.value)}
-  //         ></textarea>
-  //       </div>
-  //   <div className="dashboard">
-
-  //     <div className="log-viewer">
-  //       <LogSnippet logObj={logArr}/>
-  //     </div>
-
-      
-  //     <div className="log-workbench">
-
-  //       {<div className="error-logs">
-  //         <LogSnippet logObj={getErrorLogs(logArr)}/>
-  //       </div>}
-
-  //       {<div className="exception-logs">
-  //         <p>EXCEPTION logs: {getNumOfException(logArr)}</p>
-  //         <LogSnippet logObj={getExceptionLogs(logArr)}/>
-  //       </div>}
-
-  //     </div>
-
-
-  //   </div>  
-  //   </div>
-  // );
+  const setObservingLog = (log) => {
+    setCurrectObservingLog(log)
+  }
 
   return(
-    <>
-      <Dashboard/>
-    </>
+    <main className="Main-app">
+      <div className="log-nav">
+        <Menu logList={logList} setCurrectObservingLog={setObservingLog} addLog={addLog}/>
+      </div>
+
+      <div className="dashboard">
+        <Dashboard/>
+      </div>
+    </main>
   )
 }
 

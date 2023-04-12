@@ -44,26 +44,25 @@ function Dashboard() {
     console.log(filteredLog)
   }
 
-  const viewTimeStamp = (timeStamp) => {
-    
+  const setViewLog = (e) => {
+    setLogStr(e.target.value)
   }
 
   return (
-    <div className="dashboard">
+    <>
         
-        <div className="log-nav">
+        {/* <div className="log-nav">
 
-        </div>
+        </div> */}
 
       
         <div className="log-view-container">
 
-          <UtilityBar logArr={logArr} filterByLevel={viewLevel}/>
+          <UtilityBar logArr={logArr} filterByLevel={viewLevel} viewLog={setViewLog}/>
 
             <div className="log-view-input">
-                <textarea onChange={(e) => setLogStr(e.target.value)}>
-                </textarea>
-                
+                {/* <textarea onChange={(e) => setLogStr(e.target.value)}>
+                </textarea> */}
             </div>
 
             <div className="log-view">
@@ -75,7 +74,7 @@ function Dashboard() {
             </div>
         </div>
 
-    </div>
+    </>
   );
 }
 
