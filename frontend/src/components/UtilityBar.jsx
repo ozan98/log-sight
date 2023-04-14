@@ -1,6 +1,6 @@
 import {getNumOfLevel} from '../util/analytic'
 
-function UtilityBar( {logArr, filterByLevel, viewLog} ) {
+function UtilityBar( {logArr, filterByLevel} ) {
 
     const levelNum = getNumOfLevel(logArr)
 
@@ -15,6 +15,7 @@ function UtilityBar( {logArr, filterByLevel, viewLog} ) {
 
 
             <div className="utility-buttons">
+                <button onClick={() => filterByLevel('ALL')}>All {levelNum.allCount}</button>
                 <button onClick={() => filterByLevel('EXCEPTION')}>Exception {levelNum.exceptionCount}</button>
                 <button onClick={() => filterByLevel('ERROR')}>Error {levelNum.errorCount}</button>
                 <button onClick={() => filterByLevel('WARN')}>Warn {levelNum.warnCount}</button>
