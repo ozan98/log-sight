@@ -7,26 +7,27 @@ import LogTable from './LogTable'
 import UtilityBar from './UtilityBar'
 
 
-function Dashboard() {
-  const [logStr, setLogStr] = useState(``)
+function Dashboard( {logString} ) {
+  const [logStr, setLogStr] = useState('')
   const [logArr, setLogArr] = useState([])
   const [filteredLog, setFilteredLog] = useState([])
   const [snippetView, setSnippetView] = useState([])
   
-
+  // console.log(logString)
   useEffect(() => {
     
-    if(logStr !== ''){
-      const arr = parse(logStr)
+    console.log(typeof logString)
+    if(logString !== ''){
+      const arr = parse(logString)
       setLogArr(arr)
-      console.log('hello from if statement')
+      console.log(logArr)
     }
 
     return () => {
       setLogArr([])
     }
 
-  },[logStr])
+  },[logString])
 
   const selectSnippet = (index) => {
       setSnippetView([])

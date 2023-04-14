@@ -1,18 +1,17 @@
 import AddLogForm from './AddLogForm'
+import LogTab from './LogTab'
 import {useState} from 'react'
 
-function Menu( {logList, setCurrentObservingLog, addLog} ) {
+function Menu( {logList, setCurrectObservingLog, addLog} ) {
 
     const [addSelect, setAddSelect] = useState(false)
 
     const renderLogList = (logList) => {
         console.log("rendering")
         return logList.map((log) => {
-            return (<div>
-                        <p>{log.logName}</p>
-                        <p>{log.logtype}</p>
-                    </div>)
+            return <LogTab name={log.logName} type={log.logType} setCurrent={setCurrectObservingLog} />
         })
+
     }
 
     const renderAddButton = () => {
