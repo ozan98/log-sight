@@ -55,7 +55,7 @@ const getNumOfLevel = (arr) => {
         warnCount: warnCount,
         infoCount: infoCount,
         debugCount: debugCount,
-        allCount: arr[arr.length - 1].index
+        allCount: (arr.length > 0) ? arr[arr.length - 1].index : 0
     }
 
     return numOfLevelObject

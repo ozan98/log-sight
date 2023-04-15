@@ -40,11 +40,11 @@ main {
   height: 100%;
 }
 
-.log-view-container .log-view-input textarea {
+/* .log-view-container .log-view-input textarea {
   width: 100%;
   height: 25px;
 
-}
+} */
 
 .log-view-container .log-view {
   overflow-y: scroll;
@@ -54,6 +54,15 @@ main {
   height: 65vh;
   background-color: var(--textAreaBackground);
   
+}
+
+.log-view-container .log-snippet {
+  height: 30vh;
+}
+
+.log-snippet textarea {
+  width: 100%;
+  height: 100%;
 }
 
 .log-analysis {
@@ -100,8 +109,4 @@ table tr:hover td {
 }
 
 
-.log-snippet textarea {
-  width: 100%;
-  /* height: 100vh; */
-}
 

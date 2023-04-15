@@ -10,10 +10,10 @@ function App() {
     logStr: '',
   })
 
-  // console.log(currentObservingLog)
+  console.log(logList)
+
   const addLog = (newLog) => {
     setLogList((prev) => [...prev, newLog])
-    // console.log(newLog)
   }
 
 

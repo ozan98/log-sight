@@ -24,6 +24,7 @@ function AddLogForm( {addToList, toggleAddSelect} ) {
 
                 <label>Log type</label>
                 <select name="log-type" id="log-type" onChange={(e) => setLogType(e.target.value)}>
+                    <option>TYPE</option>
                     <option>MS</option>
                     <option>DS</option>
                     <option>DSE</option>
