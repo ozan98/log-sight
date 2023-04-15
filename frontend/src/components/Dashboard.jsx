@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
-import {parse} from '../util/LineParser'
+// import {parse} from '../util/LineParser'
+import {parse} from '../util/parser'
 import {filterByLevel} from '../util/analytic'
 import LogSnippet from './LogSnippet'
 import LogTable from './LogTable'

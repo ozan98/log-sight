@@ -140,5 +140,6 @@ const parse = (logStr) => {
 
 
 module.exports = {
-    parse
+    parse,
+    parseToObjs
 }
