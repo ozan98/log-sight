@@ -7,7 +7,7 @@ function Menu( {logList, setCurrectObservingLog, addLog} ) {
     const [addSelect, setAddSelect] = useState(false)
 
     const renderLogList = (logList) => {
-        console.log("rendering")
+        console.log(logList)
         return logList.map((log) => {
             return <LogTab name={log.logName} type={log.logType} setCurrent={setCurrectObservingLog} />
         })

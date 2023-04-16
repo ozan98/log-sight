@@ -28,12 +28,12 @@ function App() {
     }
     
     setCurrectObservingLog(logToBeAdded)
-    console.log(currentObservingLog)
   }
 
   const renderDashboard = (currentLog) => {
     console.log(currentLog)
-    return(currentLog === '') ? <Dashboard logString={''} /> : <Dashboard logString={currentLog} />
+    // return(currentLog === '') ? <Dashboard log={''} /> : <Dashboard logString={currentLog} />
+    return <Dashboard log={currentLog} />
   }
 
   return(
@@ -44,7 +44,7 @@ function App() {
 
       <div className="dashboard">
         {/* <Dashboard/> */}
-        {(currentObservingLog.logStr) ? renderDashboard(currentObservingLog.logStr) : renderDashboard('')}
+        {(currentObservingLog.logStr !== '') ? renderDashboard(currentObservingLog) : renderDashboard({logName: '', logStr: '', logType: ''})}
         {/* <Dashboard logString={currentObservingLog.logStr} /> */}
       </div>
     </main>
