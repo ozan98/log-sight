@@ -89,6 +89,7 @@ const getLogMessage = (str) => {
 
 
 const dseParseToObjs = (arr) => {
+    console.log('DSE parser')
     if(!arr || arr.length === 0) {
         return {
             index: '',

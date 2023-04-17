@@ -8,7 +8,7 @@ function AddLogForm( {addToList, toggleAddSelect} ) {
     const addLogToList = () => {
         const log = {
             logName: logName,
-            logtype: logType,
+            logType: logType,
             logStr: logStr,
         }
 

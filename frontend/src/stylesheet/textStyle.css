@@ -1,0 +1,31 @@
+@import '../index.css';
+
+
+
+
+
+.time-stamp{
+    color: var(--time-stamp);
+}
+.body{
+    color: var(--body);
+}
+.module{
+    color: var(--module);
+}
+.index{
+    color: var(--index);
+}
+.level{
+    color: var(--level);
+}
+.line-number{
+    color: var(--line-number);
+}
+.request-id {
+    color: var(--request-id);
+}
+
+.numbering {
+    background-color: rgba(0, 0, 0, 0.5);
+}

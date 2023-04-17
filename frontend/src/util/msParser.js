@@ -94,6 +94,7 @@ const getLogMessage = (str) => {
 
 
 const parseToObjs = (arr) => {
+    console.log('MS parser')
     const logObjArr = []
     let index = 1
         for(let line of arr) {

@@ -1,5 +1,5 @@
 // import {parseToObjs} from './LineParser';
-const {parseToObjs} = require('./LineParser')
+const {parseToObjs} = require('./msParser')
 const {dseParseToObjs} = require('./dseParser')
 
 
@@ -21,7 +21,7 @@ const parse = (logStr, logType) => {
 
     result.push(entry);
 
-    // return parseToObjs(result)
+    console.log(logType)
    
     if(logType === 'MS'){
         return parseToObjs(result)

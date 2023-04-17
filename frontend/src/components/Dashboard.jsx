@@ -19,6 +19,9 @@ function Dashboard( {log} ) {
       setLogArr(arr)
     }
 
+    if(filteredLog.length > 0)
+      setFilteredLog([])
+
     return () => {
       setLogArr([])
     }

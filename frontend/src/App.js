@@ -38,7 +38,7 @@ function App() {
 
   return(
     <main className="Main-app">
-      <div className="log-nav">
+      <div className="menu-container">
         <Menu logList={logList} setCurrectObservingLog={setObservingLog} addLog={addLog}/>
       </div>
 

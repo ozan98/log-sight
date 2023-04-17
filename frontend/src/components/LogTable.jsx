@@ -4,9 +4,9 @@ function LogTable( {logArr, getSnippet} ) {
     
     return(
         <table>
-            <thead>
+            {/* <thead>
                 
-            </thead>
+            </thead> */}
             <tbody>
                 <LogRow logArr={logArr} getSnippet={getSnippet}/>
             </tbody>

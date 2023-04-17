@@ -6,14 +6,6 @@ function UtilityBar( {logArr, filterByLevel} ) {
 
     return (
         <div className="utility-bar">
-            {/* <p>Copy paste log here</p>
-            <div className="log-view-input">
-                <textarea onChange={(e) => viewLog(e)}>
-                </textarea>
-            </div> */}
-
-
-
             <div className="utility-buttons">
                 <button onClick={() => filterByLevel('ALL')}>All {levelNum.allCount}</button>
                 <button onClick={() => filterByLevel('EXCEPTION')}>Exception {levelNum.exceptionCount}</button>
