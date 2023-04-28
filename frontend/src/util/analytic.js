@@ -66,3 +66,8 @@ module.exports = {
     getNumOfLevel,
     filterByLevel,
 }
+
+// export default {
+//     getNumOfLevel,
+//     filterByLevel,
+// }

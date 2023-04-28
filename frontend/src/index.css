@@ -54,9 +54,9 @@ main {
   height: 100vh;
 }
 
-.tab-container {
+/* .tab-container {
   
-}
+} */
 
 .tab-container .tab {
   background-color: rgba(0, 0, 0, 0.2);
