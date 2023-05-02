@@ -12,27 +12,9 @@ function LogSnippet( {logObj} ) {
     return(
         <textarea 
             value={
-                // logObj.map((log) => {
-                //     return (
-                //     'hi'
-                //     )
-                // })\
                 getLogObjAsString(logObj)
             }>
         </textarea>
-
-
-        // <>
-        //     {
-        //         logObj.map((log) => {
-        //             return(
-        //                 <>
-        //                     {log.timeStamp} {log.level} {log.module} {log.requestId} {log.lineNumber}{log.body}
-        //                 </>
-        //             )
-        //         })
-        //     }
-        // </>
     )
 }
 
