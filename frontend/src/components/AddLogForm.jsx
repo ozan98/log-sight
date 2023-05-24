@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {parse} from '../util/parser'
 
 function AddLogForm( {addToList, toggleAddSelect} ) {
     const [logStr, setLogStr] = useState('')
@@ -6,11 +7,19 @@ function AddLogForm( {addToList, toggleAddSelect} ) {
     const [logName, setLogName] = useState('')
 
     const addLogToList = () => {
+        const logEntries = parse(logStr, logType)
+        console.log(logEntries)
+
         const log = {
             logName: logName,
             logType: logType,
             logStr: logStr,
+            logEntries: logEntries,
+            filteredLog: [],
+            logSnippet: [],
+
         }
+
 
         addToList(log)
         toggleAddSelect(false)

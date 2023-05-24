@@ -9,38 +9,41 @@ import UtilityBar from './UtilityBar'
 
 
 function Dashboard( {log} ) {
-  const [logArr, setLogArr] = useState([])
-  const [filteredLog, setFilteredLog] = useState([])
-  const [snippetView, setSnippetView] = useState([])
+  // const [logArr, setLogArr] = useState([])
+  // const [filteredLog, setFilteredLog] = useState([])
+  // const [snippetView, setSnippetView] = useState([])
+
+  const {logStr, logType, logEntries, filteredLog, logSnippet } = log
+  console.log(logStr)
   
   useEffect(() => {
-    if(log.logStr !== ''){
-      const arr = parse(log.logStr, log.logType)
-      setLogArr(arr)
+    if(logStr !== ''){
+      // const arr = parse(logStr, logType)
+      // setLogArr(arr)
     }
 
-    if(filteredLog.length > 0)
-      setFilteredLog([])
+    // if(filteredLog.length > 0)
+      // setFilteredLog([])
 
     return () => {
-      setLogArr([])
+      // setLogArr([])
     }
 
   },[log])
 
   const selectSnippet = (index) => {
-      setSnippetView([])
-      const snippetLine = logArr.filter((line) => line.index === index)
-      setSnippetView(snippetLine)
+      // setSnippetView([])
+      const snippetLine = logEntries.filter((line) => line.index === index)
+      // setSnippetView(snippetLine)
   }
 
 
   const viewLevel = (level) => {
     if(level === 'ALL'){
-      setFilteredLog([])
+      // setFilteredLog([])
     }else {
-      const filteredLog = filterByLevel(logArr, level)
-      setFilteredLog(filteredLog)
+      const filteredLog = filterByLevel(logEntries, level)
+      // setFilteredLog(filteredLog)
     }
     
   }
@@ -50,17 +53,22 @@ function Dashboard( {log} ) {
     <>    
         <div className="log-view-container">
 
-          <UtilityBar logArr={logArr} filterByLevel={viewLevel}/>
+          <UtilityBar logArr={logEntries} filterByLevel={viewLevel}/>
 
   
             <div className="log-view">
-              {(filteredLog.length !== 0) ? 
+              {/* {(filteredLog.length !== 0) ? 
                 <LogTable logArr={filteredLog} getSnippet={selectSnippet} /> : 
-                <LogTable logArr={logArr} getSnippet={selectSnippet} />}
+                <LogTable logArr={logEntries} getSnippet={selectSnippet} />} */}
+
+          
+                <LogTable logArr={logEntries} getSnippet={selectSnippet} />
+                
+                
             </div>
 
             <div className="log-snippet">
-                <LogSnippet logObj={snippetView} />
+                {/* <LogSnippet logObj={logSnippet} /> */}
             </div>
         </div>
 

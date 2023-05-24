@@ -8,6 +8,9 @@ function App() {
     logName: '',
     logtype: '',
     logStr: '',
+    logEntries: [],
+    filteredLog: [],
+    logSnippet: [],
   })
 
   console.log(logList)
@@ -24,7 +27,10 @@ function App() {
     const logToBeAdded = {
       logName: currentLog[0].logName,
       logType: currentLog[0].logType,
-      logStr: currentLog[0].logStr
+      logStr: currentLog[0].logStr,
+      logEntries: currentLog[0].logEntries,
+      filteredLog: currentLog[0].filteredLog,
+      logSnippet: currentLog[0].logSnippet
     }
     
     setCurrectObservingLog(logToBeAdded)
@@ -44,7 +50,7 @@ function App() {
 
       <div className="dashboard">
         {/* <Dashboard/> */}
-        {(currentObservingLog.logStr !== '') ? renderDashboard(currentObservingLog) : renderDashboard({logName: '', logStr: '', logType: ''})}
+        {(currentObservingLog.logEntries !== 0) ? renderDashboard(currentObservingLog) : renderDashboard({logName: '', logStr: '', logType: ''})}
         {/* <Dashboard logString={currentObservingLog.logStr} /> */}
       </div>
     </main>
