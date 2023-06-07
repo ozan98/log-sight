@@ -37,7 +37,8 @@ body {
 }
 
 main {
-  display: flex;
+  /* display: grid; */
+  width: 100%
 }
 
 .dashboard {
@@ -50,15 +51,15 @@ main {
 .menu-container {
   background-color: rgba(0, 0, 0, 0.9);
   color: #FFFFFF;
-  width: 15%;
-  height: 100vh;
+  width: 100%;
+  height: 10vh;
 }
 
 /* .tab-container {
   
 } */
 
-.tab-container .tab {
+/* .tab-container .tab {
   background-color: rgba(0, 0, 0, 0.2);
   border: 1px white solid;
   display: flex;
@@ -68,7 +69,7 @@ main {
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
-}
+} */
 
 .tab-container .tab span {
   color: var(--body);
@@ -95,7 +96,9 @@ main {
   font-weight: 600;
   width: 100;
   height: 65vh;
-  background-color: var(--textAreaBackground);
+  background-color: black;
+  color: white;
+  white-space: pre-wrap;
   
 }
 
@@ -111,50 +114,13 @@ main {
 .log-analysis {
   width: 25%;
   height: 100%;
-
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  cursor: pointer;
-
-}
-
-tr {
-  white-space: pre-wrap;
-  /* text-align: start; */
-  vertical-align:top;
-  /* border: 3px solid black; */
-  
-}
-
-tr td {
-  margin: 0 60px;
+#log-color-index {
+  color: 	rgb(203, 195, 227);
 }
 
 
-tr th {
-  text-decoration: none;
-  font-weight: 400;
-}
-
-
-tr th:nth-child(7) {
-  text-align: left;
-  display: flex;
-  vertical-align: top;
-}
-
-/* tr :hover{
-  background-color: grey;
-} */
-
-table tr:hover td {
-  background-color: var(--highlight);
-}
 
 
 

@@ -24,10 +24,6 @@ function Menu( {logList, setCurrectObservingLog, addLog} ) {
 
     return (
         <>
-        <div className="logo">
-            <h1>LOG SIGHT</h1>
-        </div>
-
         <div className="log-list-container">
             <div className="add-Log-Container">
                 {(addSelect) ? renderAddForm() : renderAddButton()}
