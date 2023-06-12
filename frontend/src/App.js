@@ -44,6 +44,10 @@ function App() {
 
   return(
     <main className="Main-app">
+      <div className="logo">
+            <h1>LOG SIGHT</h1>
+        </div>
+        
       <div className="menu-container">
         <Menu logList={logList} setCurrectObservingLog={setObservingLog} addLog={addLog}/>
       </div>

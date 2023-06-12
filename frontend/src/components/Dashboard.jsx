@@ -52,8 +52,9 @@ function Dashboard( {log} ) {
   return (
     <>    
         <div className="log-view-container">
-
-          <UtilityBar logArr={logEntries} filterByLevel={viewLevel}/>
+          <div className="utility-bar">
+            <UtilityBar logArr={logEntries} filterByLevel={viewLevel}/>
+          </div>
 
   
             <div className="log-view">
@@ -67,9 +68,8 @@ function Dashboard( {log} ) {
                 
             </div>
 
-            <div className="log-snippet">
-                {/* <LogSnippet logObj={logSnippet} /> */}
-            </div>
+            
+            
         </div>
 
     </>

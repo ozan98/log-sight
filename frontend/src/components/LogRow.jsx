@@ -4,8 +4,8 @@ function LogTable( {logArr, getSnippet} ) {
     const renderRow = (logs) => {
         return logs.map((row) => {
             return(
-                <div>
-                    <span>{`${row.index}`}</span>
+                <div className="log-row-container">
+                    <span className="row-index">{`${row.index}`}</span>
                     <span>{`${row.timeStamp.day}`}</span>
                     <span>{`${row.timeStamp.month}`}</span>
                     <span>{`${row.timeStamp.year}`}</span>
@@ -14,7 +14,7 @@ function LogTable( {logArr, getSnippet} ) {
                     <span>{`${row.module} `}</span>
                     <span>{`${row.requestId} `}</span>
                     <span>{`${row.lineNumber}`}</span>
-                    <span>{`${row.body} `}</span>
+                    <span className="row-body">{`${row.body} `}</span>
 
                         
                     
