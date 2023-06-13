@@ -106,7 +106,7 @@ main {
 
 .log-view-container {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 /* .log-view-container .log-view-input textarea {
@@ -128,13 +128,19 @@ main {
   
 }
 
-.log-view-container .log-snippet {
+/* .log-view-container .log-snippet {
   height: 15vh;
 }
 
 .log-snippet textarea {
   width: 100%;
   height: 100%;
+} */
+
+.control-panel {
+  background-color: red;
+  height: 50vh;
+
 }
 
 .log-analysis {
