@@ -1,20 +1,10 @@
 import LogRow from './LogRow'
 
-function LogTable( {logArr, getSnippet} ) {
+function LogTable( {logArr} ) {
 
  
     return(
-        // <table>
-        //     {/* <thead>
-                
-        //     </thead> */}
-        //     <tbody>
-        //         <LogRow logArr={logArr} getSnippet={getSnippet}/>
-        //     </tbody>
-        // </table>
-        <div>
-            <LogRow logArr={logArr} getSnippet={getSnippet}/>
-        </div>
+            <LogRow logArr={logArr} />
     )
 }
 

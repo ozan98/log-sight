@@ -21,7 +21,11 @@ const parseMStoArray = (logStr) => {
     }
     });
 
+    
     logEntries.push(entry);
+  
+    console.log(entry)
+    console.log(String.raw`\ufeff`)
 
     return parseToObjs(logEntries)
 }

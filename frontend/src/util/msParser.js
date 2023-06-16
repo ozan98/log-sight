@@ -108,10 +108,8 @@ const parseToObjs = (arr) => {
                 body: getLogMessage(line),
                 }
                 
-    
             logObjArr.push(logObj)
             }
-
             return logObjArr
         }
             

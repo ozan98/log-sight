@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import './stylesheet/utilityBar.css'
 import './stylesheet/textStyle.css'
+import './stylesheet/toolKit.css'
+import './stylesheet/logView.css'
 
 const container = document.getElementById('root');
 const root = createRoot(container);

@@ -1,7 +1,11 @@
 import {useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {addLog} from '../features/log/logSlice'
 import {parse} from '../util/parser'
 
-function AddLogForm( {addToList, toggleAddSelect} ) {
+
+function AddLogForm( {toggleAddSelect} ) {
+    const dispatch = useDispatch()
     const [logStr, setLogStr] = useState('')
     const [logType, setLogType] = useState('')
     const [logName, setLogName] = useState('')
@@ -20,8 +24,7 @@ function AddLogForm( {addToList, toggleAddSelect} ) {
 
         }
 
-
-        addToList(log)
+        dispatch(addLog(log))
         toggleAddSelect(false)
     }
     
