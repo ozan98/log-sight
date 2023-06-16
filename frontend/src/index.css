@@ -20,14 +20,10 @@ body {
 
 .logo {
   text-align: center;
-  border-bottom: 1px solid black
+  border-bottom: 1px solid black;
+  height: 5vh
 }
 
-
-.forlog-view {
-  white-space: pre-wrap;
-  
-}
 
 
 
