@@ -1,5 +1,104 @@
 
 .tool-kit-container {
-    height: 40vh;
+    height: 95vh;
     border-top: 1px solid black;
+    display: flex;
+}
+
+
+
+
+/* Side Bar */
+
+.side-bar {
+    width: 15%;
+    border-right: 1px solid #e9e9e9; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px -2px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-log-container {
+    width: 100;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 1px solid #e9e9e9;
+    margin-top: auto;
+    padding-left: 1.8em;
+    height: 4em;
+
+    box-shadow: -2px 2px 10px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.add-log-container button {
+    border: none;
+    background-color: #ffff;
+    color: var(--text-color);
+    
+    font-size: 88%;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+/* .log-list-container {
+    height: 250px;
+    background-color: red;
+    width: 100%;
+} */
+
+#plus-icon {
+    color: var(--primary);
+    font-size: 1.8em;
+    margin-right: 7px;
+    border: none;
+}
+
+
+
+/* side-bar  -> log-list*/
+
+.log-list-container{
+    width: 100%;
+    align-items: center;
+    padding: 25px 0;
+
+    color: var(--text-color);
+}
+
+.log-list {
+    margin-top: 40px;
+}
+
+.log-list-tab{
+    display: flex;
+
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 10px 0;
+
+}
+
+.log-list-tab:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.log-list-tab p:nth-child(1) {
+    margin-right: 20px;
+}
+
+#log-list-label {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.in-view {
+    color: green;
+}
+
+.not-in-view {
+    color: yellow;
 }

@@ -5,7 +5,8 @@ const parseDateHelper = (dateObject) => {
     const dateData = dateString.split(' ')
     
     const dateTimeArr = {
-        timeStamp: dateObject.timeStamp,
+        dateObject: dateObject,
+        timeStampString: dateObject.timeStamp,
         year: dateData[3],
         month: dateData[1],
         day: dateData[2],
@@ -27,7 +28,7 @@ const parseDate = (obj) => {
     const [second, millisecond] = secondPart.split('.')
 
 
-    const dateObject = new Date(year, month, day, hour, minute, second, millisecond);
+    const dateObject = new Date(year, month, day, hour, minute, second, millisecond)
     
     
     return parseDateHelper({

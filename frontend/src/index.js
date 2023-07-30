@@ -8,7 +8,8 @@ import './index.css';
 import './stylesheet/utilityBar.css'
 import './stylesheet/textStyle.css'
 import './stylesheet/toolKit.css'
-import './stylesheet/logView.css'
+import './stylesheet/logPanel.css'
+import './stylesheet/modal.css'
 
 const container = document.getElementById('root');
 const root = createRoot(container);

@@ -1,24 +1,23 @@
 import ansi from 'ansi-escape-sequences'
 
-function LogTable( {logArr, getSnippet} ) {
+function LogTable( {logArr} ) {
     const renderRow = (logs) => {
         return logs.map((row) => {
             return(
-                <div className="log-row-container">
-                    <span className="row-index">{`${row.index}`}</span>
-                    <span>{`${row.timeStamp.day}`}</span>
-                    <span>{`${row.timeStamp.month}`}</span>
-                    <span>{`${row.timeStamp.year}`}</span>
-                    <span>{`${row.timeStamp.time} `}</span>
-                    <span>{`${row.level} `}</span>
-                    <span>{`${row.module} `}</span>
-                    <span>{`${row.requestId} `}</span>
-                    <span>{`${row.lineNumber}`}</span>
-                    <span className="row-body">{`${row.body} `}</span>
-
-                        
+                <div className="log-view-row">
+                    <div className="log-view-row-index">{`${row.index}`}</div>
+                    <div>
+                        <span>{`${row.timeStamp.day}`}</span>
+                        <span>{`${row.timeStamp.month}`}</span>
+                        <span>{`${row.timeStamp.year}`}</span>
+                        <span>{`${row.timeStamp.time} `}</span>
+                        <span>{`${row.level} `}</span>
+                        <span>{`${row.module} `}</span>
+                        <span>{`${row.requestId} `}</span>
+                        <span>{`${row.lineNumber}`}</span>
+                        <span className="row-body">{`${row.body} `}</span>
+                    </div>
                     
-                    {/* {`${row.timeStamp.day}${row.timeStamp.month}${row.timeStamp.year}${row.timeStamp.time} ${row.level} ${row.module} ${row.requestId} ${row.lineNumber}${row.body}`} */}
                 </div>
             )
         })

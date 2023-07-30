@@ -1,16 +1,18 @@
 import ToolKit from './components/ToolKit'
-import LogView from './components/LogView'
+// import LogView from './components/LogView'
+import NavBar from './components/NavBar'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
   return(
     <main className="main-app">
-      <div className="logo">
-            <h1>LOG SIGHT</h1>
-      </div>
       
-      <LogView />
+      <NavBar />
+      {/* <LogView /> */}
       <ToolKit />
+      <ToastContainer />
 
     </main>
   )
