@@ -54,7 +54,7 @@ function LogPanel() {
             </div>
           </div>
 
-          {toggleSightForm ? <SightForm toggle={handleSightFormToggle}/> : ''}
+          {toggleSightForm ? <SightForm toggleSight={handleSightFormToggle} /> : ''}
         </div>
 
   );

@@ -72,7 +72,7 @@ const getFilteredLog = (logFilter, logs) => {
                 }
 
                 if(logFilter.error === false && logFilter.exception === true && logFilter.keyWord === ''){
-                    if(logEntry.level.includes('Exception') || logEntry.level.includes('exception')){
+                    if(logEntry.body.includes('Exception') || logEntry.body.includes('exception')){
                         unSortedLog.push(logEntry)
                     }
                 }

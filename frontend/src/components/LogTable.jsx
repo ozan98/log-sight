@@ -1,10 +1,10 @@
-import LogRow from './LogRow'
+import LogRow from './LogView'
 
 function LogTable( {logArr} ) {
 
  
     return(
-            <LogRow logArr={logArr} />
+            <LogRow />
     )
 }
 
