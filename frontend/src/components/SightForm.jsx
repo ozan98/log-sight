@@ -68,6 +68,8 @@ function SightForm({ toggleSight }) {
         setFilteredLog(filteredLog)
         handlelogViewToggle()
 
+        console.log(viewLogList)
+
     }
 
 
@@ -79,10 +81,6 @@ function SightForm({ toggleSight }) {
                 </div>
                 <div className="sight-form">
                     <form onSubmit={handleSubmit}>
-                        {/* <div className="add-log-form-input">
-                            <label>Name:</label>
-                            <input type="text" onChange={(e) => setLogName(e.target.value)}/>
-                        </div> */}
                         <div className="sight-form-input">
                             <label>Error:</label>
                             <select name="error-type" id="error-type" onChange={(e) => setError(e.target.value)}>
@@ -131,7 +129,7 @@ function SightForm({ toggleSight }) {
 
     return (
         <>
-        {/* <div className="sight-modal-bg">
+        <div className="sight-modal-bg">
             <div className="sight-modal">
                 <div className="sight-form-header">
                     <h1>Sight</h1>
@@ -181,9 +179,10 @@ function SightForm({ toggleSight }) {
                     </form>
                 </div>
             </div>
-        </div> */}
+        </div>
 
-        {toggleLogView ? <LogView logArr={filteredLog}/> : SightForm}
+        {toggleLogView ? <LogView logArr={filteredLog} handleToggle={handlelogViewToggle}/> : ''}
+
         </>
     )
 }

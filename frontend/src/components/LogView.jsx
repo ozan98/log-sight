@@ -1,11 +1,11 @@
 import ansi from 'ansi-escape-sequences'
 
-function LogView( {logArr} ) {
+function LogView( {logArr, handleToggle} ) {
     const renderRow = (logs) => {
         return logs.map((row) => {
             return(
                 <div className="log-view-row">
-                    <div className="log-view-row-index">{`${row.index}`}</div>
+                    {/* <div className="log-view-row-index">{`${row.index}`}</div> */}
                     <div>
                         <span>{`${row.timeStamp.day}`}</span>
                         <span>{`${row.timeStamp.month}`}</span>
@@ -26,7 +26,13 @@ function LogView( {logArr} ) {
     return(
         <div className="log-view-modal-bg">
             <div className="log-view-modal">
-                {renderRow(logArr)}
+                <div className="log-view-header">
+                    <h1>Log View</h1>
+                    <button onClick={handleToggle}>Cancel</button>
+                </div>
+                <div className='log-view-logs'>
+                    {renderRow(logArr)}
+                </div>
             </div>
         </div>
     )

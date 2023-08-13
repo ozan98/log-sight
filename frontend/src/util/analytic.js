@@ -24,7 +24,7 @@ const sortByTimeslot = (unSortedLog) => {
 const getFilteredLog = (logFilter, logs) => {
     let unSortedLog = []
 
-
+    console.log(logFilter)
 
     for(let log of logs) {
         for(let logEntry of log.logEntries) {
@@ -78,6 +78,34 @@ const getFilteredLog = (logFilter, logs) => {
                 }
 
                 if(logFilter.error === false && logFilter.exception === false && logFilter.keyWord !== ''){
+                    if(logEntry.body.toLowerCase().includes(logFilter.keyWord.toLowerCase())){
+                        unSortedLog.push(logEntry)
+                    }
+                }
+
+                if(logFilter.error === true && logFilter.exception === true && logFilter.keyWord === ''){
+                    if(logEntry.level === 'ERROR'){
+                        unSortedLog.push(logEntry)
+                    }
+                    if(logEntry.body.toLowerCase().includes(logFilter.keyWord.toLowerCase())){
+                        unSortedLog.push(logEntry)
+                    }
+                }
+
+                if(logFilter.error === false && logFilter.exception === true && logFilter.keyWord !== ''){
+                    if(logEntry.body.includes('Exception') || logEntry.body.includes('exception')){
+                        unSortedLog.push(logEntry)
+                    }
+                    if(logEntry.body.toLowerCase().includes(logFilter.keyWord.toLowerCase())){
+                        unSortedLog.push(logEntry)
+                    }
+                }
+
+                if(logFilter.error === true && logFilter.exception === false && logFilter.keyWord !== ''){
+                    console.log('debugging')
+                    if(logEntry.level === 'ERROR'){
+                        unSortedLog.push(logEntry)
+                    }
                     if(logEntry.body.toLowerCase().includes(logFilter.keyWord.toLowerCase())){
                         unSortedLog.push(logEntry)
                     }
