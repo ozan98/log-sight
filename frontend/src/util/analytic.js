@@ -1,24 +1,48 @@
 
-const sortByTimeslot = (unSortedLog) => {
+// const sortByTimeslot = (unSortedLog) => {
 
-    unSortedLog = unSortedLog.filter((value, index) => {
-        const _value = JSON.stringify(value);
-        return index === unSortedLog.findIndex(obj => {
-          return JSON.stringify(obj) === _value;
-        });
-      });
+//     unSortedLog = unSortedLog.filter((value, index) => {
+//         const _value = JSON.stringify(value);
+//         return index === unSortedLog.findIndex(obj => {
+//           return JSON.stringify(obj) === _value;
+//         });
+//       });
 
-    for(let i = 1; i < unSortedLog.lenght; i++) {
-        let current = unSortedLog[i].timeStamp.dateObject
-        let j = i - 1
-        while (j >= 0 && unSortedLog[i].timeStamp.dateObject > current) {
-            unSortedLog[j + 1] = unSortedLog[j]
-            j--;
+//     for(let i = 1; i < unSortedLog.lenght; i++) {
+//         let current = unSortedLog[i].timeStamp.dateObject
+//         let j = i - 1
+//         while (j >= 0 && unSortedLog[i].timeStamp.dateObject > current) {
+//             unSortedLog[j + 1] = unSortedLog[j]
+//             j--;
+//         }
+//         unSortedLog[j + 1] = current
+//     }
+
+//     return unSortedLog
+// }
+
+const merge = (leftArr, rightArr) => {
+    const sortedArr = []
+    while(leftArr.length && rightArr.length) {
+        if(leftArr[0].timeStamp.dateObject <= rightArr[0].timeStamp.dateObject) {
+            sortedArr.push(leftArr.shift())
+        } else {
+            sortedArr.push(rightArr.shift())
         }
-        unSortedLog[j + 1] = current
     }
 
-    return unSortedLog
+    return [...sortedArr, ...leftArr, ...rightArr]
+}
+
+const sortByTimeslot = (unSortedLogs) => {
+    if(unSortedLogs.length < 2) {
+        return unSortedLogs
+    }
+
+    const mid = Math.floor(unSortedLogs.length / 2)
+    const leftArr = unSortedLogs.slice(0, mid)
+    const rightArr = unSortedLogs.slice(mid)
+    return merge(sortByTimeslot(leftArr), sortByTimeslot(rightArr))
 }
 
 const getFilteredLog = (logFilter, logs) => {
@@ -87,7 +111,7 @@ const getFilteredLog = (logFilter, logs) => {
                     if(logEntry.level === 'ERROR'){
                         unSortedLog.push(logEntry)
                     }
-                    if(logEntry.body.toLowerCase().includes(logFilter.keyWord.toLowerCase())){
+                    if(logEntry.body.includes('Exception') || logEntry.body.includes('exception')){
                         unSortedLog.push(logEntry)
                     }
                 }
